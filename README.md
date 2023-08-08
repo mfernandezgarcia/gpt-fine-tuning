@@ -1,4 +1,13 @@
 
+# Kaggle datasets
+global_youtube_stats.csv - All rights to https://www.kaggle.com/datasets/nelgiriyewithana/global-youtube-statistics-2023
+
+NVDA.csv - All rights to https://www.kaggle.com/datasets/bilalwaseer/nvidia-stocks-historical-data
+
+cars_2023.csv - All rights to https://www.kaggle.com/datasets/anoopjohny/2023-cars-dataset 
+
+
+
 # Make the script executable
 
 This command wil make the do.sh script an executable file:
