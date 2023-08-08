@@ -8,9 +8,9 @@ cars_2023.csv - All rights to https://www.kaggle.com/datasets/anoopjohny/2023-ca
 
 # Make the script executable
 
-This command wil make the do.sh script an executable file:
+This command wil make the run.sh script an executable file:
 <pre>
-chmod +x do.sh
+chmod +x run.sh
 </pre>
 
 # Execute the script
@@ -18,7 +18,7 @@ chmod +x do.sh
 This command will execute the executable file:
 
 <pre>
-./do.sh -a OPEN_AI_API_KEY> -f DATA_PATH -t TARGET_VARIABLES -i INPUT_VARIABLES
+./run.sh -a OPEN_AI_API_KEY> -f DATA_PATH -t TARGET_VARIABLES -i INPUT_VARIABLES
 </pre>
 
 Here you have an example:
@@ -33,7 +33,7 @@ Here you have an example:
 
 
 <pre>
-./do.sh -a sk-your_key -f data/global_youtube_stats.csv -t Title,Uploads -i channel_type,Category,Subscribers
+./run.sh -a sk-your_key -f data/global_youtube_stats.csv -t Title,Uploads -i channel_type,Category,Subscribers
 </pre>
 
 As you can see, this has a problem: the data requires a preprocessing if you have some attributes which names contains blank spaces. For example, in the demo dataset "global_youtube_stats.csv" you can check there is an attribute which name is "video views", if we wanted to work with it, we would need to change it's name to "video_views". Please, take this into account.
@@ -42,7 +42,7 @@ I strongly recommend to save the data file (which should mandatory be a csv file
 
 Here you have another example:
 <pre>
-./do.sh -a sk-your_key -f data/NVDA.csv -t Volume -i Date,Open,High,Low,Close
+./run.sh -a sk-your_key -f data/NVDA.csv -t Volume -i Date,Open,High,Low,Close
 </pre>
 
 
