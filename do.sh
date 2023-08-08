@@ -1,10 +1,16 @@
-while getopts ":a:f:" opt; do
+while getopts ":a:f:i:t:" opt; do
     case $opt in
         a)
             key_value="$OPTARG"
             ;;
         f)
             file_value="$OPTARG"
+            ;;
+        i)
+            input_values="$OPTARG"
+            ;;
+        t)
+            target_value="$OPTARG"
             ;;
         \?)
             echo "Invalid option: -$OPTARG" >&2
@@ -26,9 +32,11 @@ fi
 echo "The provided API KEY is: $key_value"
 
 export OPENAI_API_KEY=$key_value
-export FILE_PATH=$file_value # Example data/global_youtube_stats.csv
+FILE_PATH=$file_value # Example data/global_youtube_stats.csv
+TARGET=$target_value # Example "Title"
+INPUT_VALUES=$input_values # Example "Channel,Category,Subscribers"
 
-python json_parser.py $FILE_PATH outputs/output.json
+python json_parser.py $FILE_PATH outputs/output.json $INPUT_VALUES $TARGET
 openai tools fine_tunes.prepare_data -f outputs/output.json
 openai api fine_tunes.create -t outputs/output_prepared.jsonl  -m davinci
 

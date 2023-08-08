@@ -7,13 +7,32 @@ chmod +x do.sh
 </pre>
 
 # Execute the script
+
 This command will execute the executable file:
 
 <pre>
 ./do.sh -a OPEN_AI_API_KEY> -f DATA_PATH
 </pre>
 
+Here you have an example:
+
+-a = open ai Api key
+-f = File
+-t = Target variables
+-i = Input variables
+
+<pre>
+./do.sh -a sk-your_key -f data/global_youtube_stats.csv -t Title,Uploads -i channel_type,Category,Subscribers
+</pre>
+
+As you can see, this has a problem: the data requires a preprocessing if you have some attributes which names contains blank spaces. For example, in the demo dataset "global_youtube_stats.csv" you can check there is an attribute which name is "video views", if we wanted to work with it, we would need to change it's name to "video_views". Please, take this into account.
+
 I strongly recommend to save the data file (which should mandatory be a csv file) in the data folder. In the path you should add the complete route. Example: data/global_youtube.stats.csv
+
+Here you have another example:
+<pre>
+./do.sh -a sk-your_key -f data/NVDA.csv -t Volume -i Date,Open,High,Low,Close
+</pre>
 
 
 This will generate in the "outputs" folder a new json file. After that, we will see in the console the following output: 
