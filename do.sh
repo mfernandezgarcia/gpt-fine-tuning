@@ -8,14 +8,14 @@ while getopts ":a:" opt; do
             exit 1
             ;;
         :)
-            echo "Option -$OPTARG requires an argument." >&2
+            echo "Option -$OPTARG requires an argument. Please provide your OpenAI api key as an argument using -a <OPEN_AI_API_KEY>" >&2
             exit 1
             ;;
     esac
 done
 
 if [ -z "$argument_value" ]; then
-    echo "Error: Argument not provided. Please provide an argument using -a."
+    echo "Error: Argument not provided. Please provide your OpenAI api key as an argument using -a <OPEN_AI_API_KEY>."
     exit 1
 fi
 
