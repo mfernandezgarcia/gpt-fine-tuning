@@ -6,8 +6,6 @@ NVDA.csv - All rights to https://www.kaggle.com/datasets/bilalwaseer/nvidia-stoc
 
 cars_2023.csv - All rights to https://www.kaggle.com/datasets/anoopjohny/2023-cars-dataset 
 
-
-
 # Make the script executable
 
 This command wil make the do.sh script an executable file:
@@ -20,15 +18,19 @@ chmod +x do.sh
 This command will execute the executable file:
 
 <pre>
-./do.sh -a OPEN_AI_API_KEY> -f DATA_PATH
+./do.sh -a OPEN_AI_API_KEY> -f DATA_PATH -t TARGET_VARIABLES -i INPUT_VARIABLES
 </pre>
 
 Here you have an example:
 
 -a = open ai Api key
+
 -f = File
+
 -t = Target variables
+
 -i = Input variables
+
 
 <pre>
 ./do.sh -a sk-your_key -f data/global_youtube_stats.csv -t Title,Uploads -i channel_type,Category,Subscribers
