@@ -1,7 +1,10 @@
-while getopts ":a:" opt; do
+while getopts ":a:f:" opt; do
     case $opt in
         a)
-            argument_value="$OPTARG"
+            key_value="$OPTARG"
+            ;;
+        f)
+            file_value="$OPTARG"
             ;;
         \?)
             echo "Invalid option: -$OPTARG" >&2
@@ -14,17 +17,18 @@ while getopts ":a:" opt; do
     esac
 done
 
-if [ -z "$argument_value" ]; then
+if [ -z "$key_value" ]; then
     echo "Error: Argument not provided. Please provide your OpenAI api key as an argument using -a <OPEN_AI_API_KEY>."
     exit 1
 fi
 
 # Your script logic here that uses the provided argument value
-echo "The provided API KEY is: $argument_value"
+echo "The provided API KEY is: $key_value"
 
-export OPENAI_API_KEY=$argument_value
+export OPENAI_API_KEY=$key_value
+export FILE_PATH=$file_value # Example data/global_youtube_stats.csv
 
-python json_parser.py data/global_youtube_stats.csv outputs/output.json
+python json_parser.py $FILE_PATH outputs/output.json
 openai tools fine_tunes.prepare_data -f outputs/output.json
 openai api fine_tunes.create -t outputs/output_prepared.jsonl  -m davinci
 

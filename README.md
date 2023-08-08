@@ -10,8 +10,10 @@ chmod +x do.sh
 This command will execute the executable file:
 
 <pre>
-./do.sh OPEN_AI_API_KEY
+./do.sh -a <OPEN_AI_API_KEY> -f <DATA_PATH>
 </pre>
+
+I strongly recommend to save the data file (which should mandatory be a csv file) in the data folder. In the path you should add the complete route. Example: data/global_youtube.stats.csv
 
 
 This will generate in the "outputs" folder a new json file. After that, we will see in the console the following output: 
